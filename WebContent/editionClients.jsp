@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Liste des clients</title>
+<title>Modification d'un client</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div class="container">
 		<div class="page-header row entete">
-			<h1>Gestion des clients</h1>
+			<h1>Modification d'un client</h1>
 		</div>
 		<form>
 			<div class="form-group row">
@@ -23,16 +23,15 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="prenom" class="col-xs-4 col-form-label">Saisir
-					le prénom</label>
+				<label for="prenom" class="col-xs-4 col-form-label">Saisir le
+					prénom</label>
 				<div class="col-xs-8">
-					<input type="text" class="form-control" id="nom"
-						placeholder="prenom">
+					<input type="text" class="form-control" id="nom" placeholder="prenom">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="adresse" class="col-xs-4 col-form-label">Saisir
-					le numéro et la rue</label>
+				<label for="adresse" class="col-xs-4 col-form-label">Saisir le
+					numéro et la rue</label>
 				<div class="col-xs-8">
 					<input type="text" class="form-control" id="adresse"
 						placeholder="numéro et rue">
@@ -70,35 +69,9 @@
 						placeholder="exemple@exemple.com">
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Valider</button>
 		</form>
-		<c:if test="${! empty listeClients}">
-			<table class="table row">
-				<tr>
-					<th>Id</th>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Modifier</th>
-					<th>Supprimer</th>
-					<th>Liste des comptes</th>
-				</tr>
-				<c:forEach var="c" items="${listeClients}">
-					<tr>
-						<td><c:out value="${c.id}"></c:out></td>
-						<td><c:out value="${c.nom}"></c:out></td>
-						<td><c:out value="${c.prenom}"></c:out></td>
-						<td><a class="btn btn-link"
-							href="GestionClients?action=editionClients" role="button">Modifier</a></td>
-						<td><a class="btn btn-link"
-							href="GestionClients?action=supprimerClients" role="button">Supprimer</a></td>
-						<td><a class="btn btn-link"
-							href="GestionClients?action=listeComptes" role="button">Comptes</a></td>
-					</tr>
-				</c:forEach>
-			</table>
-		</c:if>
 	</div>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+	
 </body>
 </html>
