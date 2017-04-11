@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Virement compte à compte</title>
+<title>Erreur</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div class="container">
 		<div class="page-header row entete">
-			<h1>Virement compte à compte</h1>
+			<h1>Erreur</h1>
 		</div>
 		<form>
 			<div class="form-group row">
