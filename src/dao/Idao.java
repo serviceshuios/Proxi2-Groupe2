@@ -6,6 +6,7 @@ import java.util.Collection;
 import metier.Client;
 import metier.Compte;
 import metier.Conseiller;
+import service.exceptions.ClientInexistantException;
 
 public interface Idao {
 
@@ -70,7 +71,8 @@ public interface Idao {
 	void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
 			String email);
 
+	void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse,
+			String telephone, String ville, String email, String codepostal) throws SQLException;
 
-	void ajouterClient(Conseiller conseiller, Client client);
-	void supprimerClient(Conseiller conseiller, Client client);
+	void supprimerClient(Client client, int id) throws ClientInexistantException, SQLException;
 }
