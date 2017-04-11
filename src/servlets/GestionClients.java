@@ -26,25 +26,40 @@ public class GestionClients extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		if(request.getParameter("action").equals("modifierClient"))
+		if(request.getParameter("action").equals("editionClient"))
 		{
 			
-			request.getRequestDispatcher("/modifierClient.jsp").forward(request,response);
+			request.getRequestDispatcher("/editionClient.jsp").forward(request,response);
 		}
+		
 		if(request.getParameter("action").equals("authentification"))
 		{
 			
-			request.getRequestDispatcher("/authentification.jsp").forward(request,response);
+			request.getRequestDispatcher("/index").forward(request,response);
 		}
-		if(request.getParameter("action").equals("listerClients"))
+		
+		if(request.getParameter("action").equals("listeClients"))
 		{
 			
-			request.getRequestDispatcher("/listerClients.jsp").forward(request,response);
+			request.getRequestDispatcher("/listeClients.jsp").forward(request,response);
 		}
-		if(request.getParameter("action").equals("listerComptes"))
+		
+		if(request.getParameter("action").equals("listeComptesClients"))
 		{
 			
-			request.getRequestDispatcher("/listerComptes.jsp").forward(request,response);
+			request.getRequestDispatcher("/listeComptesClient.jsp").forward(request,response);
+		}
+		
+		if(request.getParameter("action").equals("virementCompteACompte"))
+		{
+			
+			request.getRequestDispatcher("/virementCompteACompte.jsp").forward(request,response);
+		}
+		
+		if(request.getParameter("action").equals("erreur"))
+		{
+			
+			request.getRequestDispatcher("/erreur.jsp").forward(request,response);
 		}
 	}
 
