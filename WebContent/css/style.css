@@ -1,8 +1,9 @@
 @CHARSET "UTF-8";
 
-.menu {
-	background-color:pink;
+body {
+	background-color:#5aadad;
 }
-.corps {
-	background-color:#f993e4;
+
+.page-header {
+	text-align:center;
 }
