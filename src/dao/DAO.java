@@ -7,11 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.hamcrest.core.IsNot;
+import org.hamcrest.core.IsNull;
+
 import metier.Client;
 import metier.Compte;
 import metier.CompteCourant;
 import metier.CompteEpargne;
 import metier.Conseiller;
+import service.exceptions.ClientInexistantException;
 
 public class DAO implements Idao {
 
@@ -42,17 +46,20 @@ public class DAO implements Idao {
 	}
 
 	@Override
-	public void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal, String email) {
+	public void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
+			String email) {
 		try {
 
 			Connection conn = DAOConnexion.getConnection();
-			PreparedStatement ps1 = conn.prepareStatement("UPDATE Client SET nomClient = ? , prenomClient = ?  where id=?");
+			PreparedStatement ps1 = conn
+					.prepareStatement("UPDATE Client SET nomClient = ? , prenomClient = ?  where id=?");
 			ps1.setString(1, nom);
 			ps1.setString(2, prenom);
 			ps1.setInt(3, idClient);
 			ps1.executeUpdate();
-			PreparedStatement ps2 = conn.prepareStatement("UPDATE Coordonnees SET email = ?, adresse = ?, ville = ?, codepostal = ? "
-					+ "where client.idClient=coordonnees.idClient");
+			PreparedStatement ps2 = conn
+					.prepareStatement("UPDATE Coordonnees SET email = ?, adresse = ?, ville = ?, codepostal = ? "
+							+ "where client.idClient=coordonnees.idClient");
 			ps2.setString(1, email);
 			ps2.setString(2, adresse);
 			ps2.setString(3, ville);
@@ -64,7 +71,6 @@ public class DAO implements Idao {
 			e.printStackTrace();
 		} finally {
 		}
-
 
 	}
 
@@ -159,28 +165,73 @@ public class DAO implements Idao {
 	}
 
 	@Override
-	public void ajouterClient(Conseiller conseiller, Client client) {
+	public void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse, String telephone, String ville, String email, String codepostal) throws SQLException {
 		Connection conn = DAOConnexion.getConnection();
 		client.setConseiller(conseiller);
 		try {
-			PreparedStatement ps1 = conn.prepareStatement("UPDATE idConseiller from client"
-					+ "where idClient = ?");
+			PreparedStatement ps1 = conn.prepareStatement("UPDATE idConseiller from client" + "where idClient = ?");
 			ps1.setLong(1, client.getId());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		Collection<Client> colCl = conseiller.getClients();
-		colCl.add(client);
-		conseiller.setClients(colCl);
-		
+		try {
+			PreparedStatement ps2 = conn.prepareStatement("SELECT idClient from client where idConseiller = ?");
+			ps2.setLong(1, conseiller.getId());
+			ResultSet rs = ps2.executeQuery();
+			Collection<Client> colCl = new ArrayList<Client>();
+			while (rs.next()) {
+				Client c = new Client();
+				c.setId(Integer.parseInt(rs.getString("idClient")));
+				colCl.add(c);
+			}
+			conseiller.setClients(colCl);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		PreparedStatement ps3 = conn.prepareStatement(
+				"INSERT INTO coordonnees(email, adresse, ville, codepostal, telephone)" + "values (?,?,?,?");
+		try {
+			ps3.setString(1, email);
+			ps3.setString(2, adresse);
+			ps3.setString(3, ville);
+			ps3.setString(4, codepostal);
+			ps3.setString(4, telephone);
+			ps3.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		PreparedStatement ps4 = conn
+				.prepareStatement("INSERT INTO client(nomClient, prenomClient)" + "values (?,?,?,?");
+		try {
+			ps4.setString(1, nom);
+			ps4.setString(2, prenom);
+			ps4.executeUpdate();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
-	public void supprimerClient(Conseiller conseiller, Client client) {
-		// TODO Auto-generated method stub
-		
+	public void supprimerClient(Client client, int id) throws ClientInexistantException, SQLException {
+		if (client.getId() != 0) {
+			Connection conn = DAOConnexion.getConnection();
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM client where idClient = ?");
+			try {
+				ps.setInt(1, id);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else
+			throw new ClientInexistantException("Ce client n'existe pas");
+
 	}
 
 }

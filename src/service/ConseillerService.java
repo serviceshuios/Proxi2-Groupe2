@@ -10,6 +10,7 @@ import metier.CompteCourant;
 import metier.CompteEpargne;
 import metier.Conseiller;
 import service.exceptions.ClientGererParAutreConseillerException;
+import service.exceptions.ClientInexistantException;
 import service.exceptions.ClientPossedeDejaConseillerException;
 import service.exceptions.MontantNegatifException;
 import service.exceptions.NombreClientsMaxAtteintException;
@@ -78,11 +79,11 @@ public class ConseillerService implements IConseillerService {
 	}
 
 	@Override
-	public void ajouterClient(Conseiller conseiller, Client client)
-			throws ClientPossedeDejaConseillerException, NombreClientsMaxAtteintException {
+	public void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse, String telephone, String ville, String email, String codepostal)
+			throws ClientPossedeDejaConseillerException, NombreClientsMaxAtteintException, SQLException {
 		if (client.getConseiller() == null) {
 			if (conseiller.getClients().size() < 10) {
-				idao.ajouterClient(conseiller, client);
+				idao.ajouterClient(conseiller, client, nom, prenom, adresse, telephone, ville, email, codepostal);
 			} else {
 				throw new NombreClientsMaxAtteintException("Le conseiller a déjà 10 clients");
 			}
@@ -92,11 +93,11 @@ public class ConseillerService implements IConseillerService {
 	}
 
 	@Override
-	public void supprimerClient(Conseiller conseiller, Client client) throws ClientGererParAutreConseillerException {
+	public void supprimerClient(Conseiller conseiller, Client client, int id) throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException {
 		if (!conseiller.getClients().contains(client)) {
 			throw new ClientGererParAutreConseillerException("Ce conseiller ne gère pas ce client");
 		}
-		idao.supprimerClient(Client client);
+		idao.supprimerClient(client, id);
 	}
 
 }
