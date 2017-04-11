@@ -4,30 +4,37 @@
 package metier;
 
 /**
- * Classe pour la gestion des adresses et des numeros de telephone.
- * Les proprietes adresse, ville, cp (pour code postal) et telephone sont des varaibles String 
- * qui sont cachees a l'exterieur de la classe.
- * Il existe un seul constructeurs qui prend en parametre l'adresse, la ville, le code postal, 
- * et le numero de telephone, tous en String.
- * Pour chaque propriete il existe des methodes getter et setter.
- * Il existe egalement une methode toString() pour l'affichage d'une date.
- *@author Konrad THOMAS et VIncent PANOUILLERES
+ * Classe pour la gestion des adresses et des numeros de telephone. Les
+ * proprietes adresse, ville, cp (pour code postal) et telephone sont des
+ * varaibles String qui sont cachees a l'exterieur de la classe. Il existe un
+ * seul constructeurs qui prend en parametre l'adresse, la ville, le code
+ * postal, et le numero de telephone, tous en String. Pour chaque propriete il
+ * existe des methodes getter et setter. Il existe egalement une methode
+ * toString() pour l'affichage d'une date.
+ * 
+ * @author Konrad THOMAS et VIncent PANOUILLERES
  */
 
 public class Coordonnees {
-	
+
 	// Proprietes
 	private String adresse;
 	private String ville;
 	private String cp;
 	private String telephone;
-	
+	private String email;
+
 	/**
 	 * Contructeur de la classe coordonnées
-	 * @param adresse Detail de l'adresse
-	 * @param ville Ville
-	 * @param cp Code postal associe a la ville
-	 * @param telephone Telephone
+	 * 
+	 * @param adresse
+	 *            Detail de l'adresse
+	 * @param ville
+	 *            Ville
+	 * @param cp
+	 *            Code postal associe a la ville
+	 * @param telephone
+	 *            Telephone
 	 */
 	public Coordonnees(String adresse, String ville, String cp, String telephone) {
 		super();
@@ -39,6 +46,7 @@ public class Coordonnees {
 
 	/**
 	 * Getter de l'adresse
+	 * 
 	 * @return Adresse
 	 */
 	public String getAdresse() {
@@ -47,7 +55,9 @@ public class Coordonnees {
 
 	/**
 	 * Setter de l'adresse
-	 * @param adresse Adresse
+	 * 
+	 * @param adresse
+	 *            Adresse
 	 */
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
@@ -55,6 +65,7 @@ public class Coordonnees {
 
 	/**
 	 * Getter de la ville
+	 * 
 	 * @return Ville
 	 */
 	public String getVille() {
@@ -63,7 +74,9 @@ public class Coordonnees {
 
 	/**
 	 * Setter de la ville
-	 * @param ville Ville
+	 * 
+	 * @param ville
+	 *            Ville
 	 */
 	public void setVille(String ville) {
 		this.ville = ville;
@@ -71,6 +84,7 @@ public class Coordonnees {
 
 	/**
 	 * Getter du code postal
+	 * 
 	 * @return Code postal
 	 */
 	public String getCp() {
@@ -79,7 +93,9 @@ public class Coordonnees {
 
 	/**
 	 * Setter du code postal
-	 * @param cp Code postal
+	 * 
+	 * @param cp
+	 *            Code postal
 	 */
 	public void setCp(String cp) {
 		this.cp = cp;
@@ -87,6 +103,7 @@ public class Coordonnees {
 
 	/**
 	 * Getter du numéro de téléphone
+	 * 
 	 * @return Numéro de téléphone
 	 */
 	public String getTelephone() {
@@ -95,18 +112,39 @@ public class Coordonnees {
 
 	/**
 	 * Setter du numéro de téléphone
-	 * @param telephone Numéro de téléphone
+	 * 
+	 * @param telephone
+	 *            Numéro de téléphone
 	 */
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 
+	/**
+	 * Getter de l'email
+	 * 
+	 * @return Email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * Setter de l'email
+	 * @param email Email du client
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	// Methode toString()
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Coordonees: " + adresse + ", " + cp + " " + ville + "; tel: " + telephone;
-	}	
+	}
 }
