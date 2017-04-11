@@ -165,8 +165,7 @@ public class DAO implements Idao {
 	}
 
 	@Override
-	public void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse,
-			String telephone, String ville, String email, String codepostal) throws SQLException {
+	public void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse, String telephone, String ville, String email, String codepostal) throws SQLException {
 		Connection conn = DAOConnexion.getConnection();
 		client.setConseiller(conseiller);
 		try {

@@ -1,5 +1,6 @@
 package service.tests;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -15,11 +16,12 @@ import metier.CarteVisaElectron;
 import service.ConseillerService;
 import service.IConseillerService;
 import service.exceptions.ClientGererParAutreConseillerException;
+import service.exceptions.ClientInexistantException;
 
 public class SupprimerClientTests {
 
 	@Test
-	public void testSupprimerClient() throws ClientGererParAutreConseillerException {
+	public void testSupprimerClient() throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException {
 		IConseillerService cs = new ConseillerService();
 		Client cl = new Client();
 		Conseiller cons = new Conseiller();
@@ -32,7 +34,7 @@ public class SupprimerClientTests {
 		cons.setClients(colCl);
 
 		// supprimer le client
-		cs.supprimerClient(cons, cl);
+		cs.supprimerClient(cons, cl, cl.getId());
 
 		// la collection ne doit plus contenir le client
 		Assert.assertFalse(cons.getClients().contains(cl));
@@ -40,7 +42,7 @@ public class SupprimerClientTests {
 	
 	@Ignore
 	@Test
-	public void testSupprimerClientDoitEffacerCompte() throws ClientGererParAutreConseillerException {
+	public void testSupprimerClientDoitEffacerCompte() throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException {
 		IConseillerService cs = new ConseillerService();
 		Client cl = new Client();
 		Conseiller cons = new Conseiller();
@@ -60,7 +62,7 @@ public class SupprimerClientTests {
 		cl.setCompteCourant(it.next());
 
 		// supprimer le client
-		cs.supprimerClient(cons, cl);
+		cs.supprimerClient(cons, cl,cl.getId());
 
 		// la collection ne doit plus contenir le compte courant du client
 		Assert.assertFalse(colCpt.contains(cc));
@@ -69,7 +71,7 @@ public class SupprimerClientTests {
 
 	@Ignore
 	@Test
-	public void testSupprimerClientDoitEffacerCarte() throws ClientGererParAutreConseillerException {
+	public void testSupprimerClientDoitEffacerCarte() throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException {
 		IConseillerService cs = new ConseillerService();
 		Client cl = new Client();
 		Conseiller cons = new Conseiller();
@@ -95,7 +97,7 @@ public class SupprimerClientTests {
 		cl.setCompteCourant(it2.next());
 
 		// supprimer le client
-		cs.supprimerClient(cons, cl);
+		cs.supprimerClient(cons, cl, cl.getId());
 
 		// la collection ne doit plus contenir la carte du compte courant du
 		// client
@@ -104,7 +106,7 @@ public class SupprimerClientTests {
 	}
 	
 	@Test(expected = ClientGererParAutreConseillerException.class)
-	public void testSupprimerClientAutreConseiller() throws ClientGererParAutreConseillerException{
+	public void testSupprimerClientAutreConseiller() throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException{
 		IConseillerService cs = new ConseillerService();
 		Client cl = new Client();
 		Conseiller cons = new Conseiller();
@@ -122,7 +124,7 @@ public class SupprimerClientTests {
 		Conseiller cons2 = new Conseiller();
 		
 		// supprimer le client
-		cs.supprimerClient(cons2, cl);
+		cs.supprimerClient(cons2, cl,cl.getId());
 		
 	}
 }
