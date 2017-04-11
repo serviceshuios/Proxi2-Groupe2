@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import metier.Client;
 import metier.Compte;
+import metier.Conseiller;
 
 public interface Idao {
 
@@ -66,6 +67,10 @@ public interface Idao {
 	 * @param email
 	 *            Nouvel email du client à modifier
 	 */
-	void modifierClient(int idClient, String prenom, String nom, String ville, String rue, String codepostal,
+	void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
 			String email);
+
+
+	void ajouterClient(Conseiller conseiller, Client client);
+	void supprimerClient(Conseiller conseiller, Client client);
 }

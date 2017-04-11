@@ -11,6 +11,7 @@ import metier.Client;
 import metier.Compte;
 import metier.CompteCourant;
 import metier.CompteEpargne;
+import metier.Conseiller;
 
 public class DAO implements Idao {
 
@@ -41,7 +42,7 @@ public class DAO implements Idao {
 	}
 
 	@Override
-	public void modifierClient(int idClient, String prenom, String nom, String ville, String rue, String codepostal, String email) {
+	public void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal, String email) {
 		try {
 
 			Connection conn = DAOConnexion.getConnection();
@@ -50,10 +51,10 @@ public class DAO implements Idao {
 			ps1.setString(2, prenom);
 			ps1.setInt(3, idClient);
 			ps1.executeUpdate();
-			PreparedStatement ps2 = conn.prepareStatement("UPDATE Coordonnees SET email = ?, rue = ?, ville = ?, codepostal = ? "
+			PreparedStatement ps2 = conn.prepareStatement("UPDATE Coordonnees SET email = ?, adresse = ?, ville = ?, codepostal = ? "
 					+ "where client.idClient=coordonnees.idClient");
 			ps2.setString(1, email);
-			ps2.setString(2, rue);
+			ps2.setString(2, adresse);
 			ps2.setString(3, ville);
 			ps2.setString(4, codepostal);
 			ps2.executeUpdate();
@@ -155,6 +156,31 @@ public class DAO implements Idao {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void ajouterClient(Conseiller conseiller, Client client) {
+		Connection conn = DAOConnexion.getConnection();
+		client.setConseiller(conseiller);
+		try {
+			PreparedStatement ps1 = conn.prepareStatement("UPDATE idConseiller from client"
+					+ "where idClient = ?");
+			ps1.setLong(1, client.getId());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Collection<Client> colCl = conseiller.getClients();
+		colCl.add(client);
+		conseiller.setClients(colCl);
+		
+	}
+
+	@Override
+	public void supprimerClient(Conseiller conseiller, Client client) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

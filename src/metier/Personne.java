@@ -2,6 +2,7 @@ package metier;
 
 /**
  * Classe abstraite représentant les personnes
+ * 
  * @author Jérome IZARD et Perrine EMIN
  *
  */
@@ -11,9 +12,8 @@ public abstract class Personne {
 	private String nom;
 	private String prenom;
 	private Coordonnees coordonnees;
-	private static final String USER=null;
-	private static final String MDP=null;
-	
+	private static final String USER = null;
+	private static final String MDP = null;
 
 	public int getId() {
 		return id;
@@ -39,6 +39,21 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
+	public Coordonnees getCoordonnees() {
+		return coordonnees;
+	}
+
+	public void setCoordonnees(Coordonnees coordonnees) {
+		this.coordonnees = coordonnees;
+	}
+
+	public static String getUser() {
+		return USER;
+	}
+
+	public static String getMdp() {
+		return MDP;
+	}
 
 	/**
 	 * Constructeur de Personne sans argument
@@ -46,7 +61,5 @@ public abstract class Personne {
 	public Personne() {
 		super();
 	}
-
-
 
 }
