@@ -5,39 +5,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Authentification du conseiller</title>
+<title>Accueil</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 formulaire">
-				<div class="page-header">
+		<div class="page-header row entete">
 					<h1>Bienvenue sur Proxibanque</h1>
-				</div>
-			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 titre">
+		<div class="row titre">
 			<h4>Veuillez vous identifier</h4>
-			</div>
 		</div>	
-		<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 formulaire">
-					<form method="post" action="AuthentificationConseiller"
-						class="form-inline">
-						<label class="sr-only" for="inlineFormInput">Name</label> <input
+		<div class="form-inline row">
+					<form method="post" action="authentificationConseiller">
+						<label class="sr-only" for="login">Login</label> <input
 							type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
-							id="inlineFormInput" placeholder="Identifiant"> <label
-							class="sr-only" for="inlineFormInputGroup">Username</label>
+							id="login" placeholder="Identifiant"> <label
+							class="sr-only" for="mdp">MDP</label>
 						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-							<input type="text" class="form-control" id="inlineFormInputGroup"
+							<input type="password" class="form-control" id="mdp"
 								placeholder="Mot de passe">
 						</div>
 						<button type="submit" class="btn btn-primary">Valider</button>
 					</form>
-				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
