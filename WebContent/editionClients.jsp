@@ -10,11 +10,24 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-	<div class="container">
-		<div class="page-header row entete">
-			<h1>Modification d'un client</h1>
+	<div id="wrap">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">ProxiBanque</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Accueil</a></li>
+				<li><a href="#">Clients</a></li>
+				<li  class="active"><a href="#">Modification d'un client</a></li>
+				<li><a href="#">Comptes d'un client</a></li>
+				<li><a href="#">Virement</a></li>
+			</ul>
 		</div>
+	</nav>
+	<div class="container">
 		<form>
+		<legend class="legende">Modification des informations d'un client</legend>
 			<div class="form-group row">
 				<label for="nom" class="col-xs-4 col-form-label">Saisir le
 					nom</label>
@@ -66,11 +79,17 @@
 					l'e-mail</label>
 				<div class="col-xs-8">
 					<input type="text" class="form-control" id="email"
-						placeholder="exemple@exemple.com">
+						placeholder="exemple@mail.com">
 				</div>
 			</div>
 		</form>
 	</div>
+	</div>
+	<div id="footer">
+      <div class="container">
+        <p>ProxiBanque v2</p>
+      </div>
+    </div>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	
 </body>

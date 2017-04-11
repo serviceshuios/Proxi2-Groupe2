@@ -10,10 +10,22 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-	<div class="container">
-		<div class="page-header row entete">
-			<h1>Comptes d'un client</h1>
+	<div id="wrap">
+		<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">ProxiBanque</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Accueil</a></li>
+				<li><a href="#">Clients</a></li>
+				<li><a href="#">Modification d'un client</a></li>
+				<li class="active"><a href="#">Comptes d'un client</a></li>
+				<li><a href="#">Virement</a></li>
+			</ul>
 		</div>
+	</nav>
+	<div>
 		<c:if test="${! empty listeComptes}">
 			<table class="table row">
 				<tr>
@@ -33,6 +45,12 @@
 			</table>
 		</c:if>
 	</div>
+	</div>
+	<div id="footer">
+      <div class="container">
+        <p>ProxiBanque v2</p>
+      </div>
+     </div>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </body>
