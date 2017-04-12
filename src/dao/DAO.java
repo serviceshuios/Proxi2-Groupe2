@@ -63,11 +63,12 @@ public class DAO implements Idao {
 				c.setEntreprise(rs.getBoolean("entreprise"));
 				cl.add(c);
 			}
-			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+			DAOConnexion.closeConnection();
 		}
 		return cl;
 
