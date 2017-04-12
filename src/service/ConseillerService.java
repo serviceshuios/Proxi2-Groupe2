@@ -62,7 +62,7 @@ public class ConseillerService implements IConseillerService {
 
 	@Override
 	public Collection<Compte> listerComptes(Client cl){
-		return idao.listerComptes();
+		return idao.listerComptes(cl);
 	}
 
 	@Override

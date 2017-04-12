@@ -52,12 +52,13 @@ public class DAO implements Idao {
 		Collection<Client> cl = new ArrayList<Client>();
 		try {
 			Connection conn = DAOConnexion.getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT nomClient, prenomClient, entreprise from client where idConseiller like ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT idClient, nomClient, prenomClient, entreprise from client where idConseiller like ?");
 			ps.setString(1, "%"+cons.getId()+"%");
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
 				Client c = new Client();
+				c.setId(rs.getInt("idClient"));
 				c.setNom(rs.getString("nomClient"));
 				c.setPrenom(rs.getString("prenomClient"));
 				c.setEntreprise(rs.getBoolean("entreprise"));

@@ -34,4 +34,13 @@ public class ListerClients {
 		Assert.assertTrue(idao.listerClients(cons).size()==2);
 	}
 	
+	@Test
+	public void testListerClients3() throws ClientPossedeDejaConseillerException, NombreClientsMaxAtteintException, SQLException, ClassNotFoundException  {
+		Idao idao = new DAO();
+		Conseiller cons = new Conseiller();
+		cons.setId(50);
+
+		Assert.assertTrue(idao.listerClients(cons).size()==0);
+	}
+	
 }

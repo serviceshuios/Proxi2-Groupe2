@@ -27,6 +27,12 @@ public class AuthentificationConseiller {
 		Idao idao = new DAO();
 		Assert.assertTrue(idao.authentificationConseiller("login", "mdp").getId()==0);
 	}
+	
+	@Test
+	public void testAuthentificationConseiller3() throws ClientPossedeDejaConseillerException, NombreClientsMaxAtteintException, SQLException, ClassNotFoundException  {
+		Idao idao = new DAO();
+		Assert.assertTrue(idao.authentificationConseiller("test2", "test2").getId()==2);
+	}
 
 	
 }
