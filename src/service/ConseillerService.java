@@ -27,14 +27,9 @@ public class ConseillerService implements IConseillerService {
 	}
 	
 	@Override
-	public Collection<Client> listerClients(Conseiller conseiller, Client c)
-			throws ClassNotFoundException, ClientGererParAutreConseillerException {
-		if (!conseiller.getClients().contains(c)) {
-			throw new ClientGererParAutreConseillerException("Ce conseiller ne gère pas ce client");
-		}
-		return idao.listerClients();
-
-	}
+	public Collection<Client> listerClients(Conseiller cons)
+			throws ClassNotFoundException {
+		return idao.listerClients(cons);}
 
 	@Override
 	public void effectuerVirement(Conseiller conseiller, Compte compteEmetteur, Compte compteRecepteur, double montant)

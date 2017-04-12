@@ -26,16 +26,14 @@ public class DAO implements Idao {
 			// 2-Créer la requête
 			// Le SQL recquiert des simples quotes ' => concaténation pour avoir le bon format
 			//PreparedStatement ps = conn.prepareStatement("insert into Client(nom,prenom) VALUES('"+c.getNom()+"','"+c.getPrenom()+"')");
-			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login like ? and mdp like ?");
-			ps.setString(1, "%"+login+"%");
-			ps.setString(2, "%"+mdp+"%");
+			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login = 'test'");
 			// 4-Exécuter la requête
 			ResultSet rs = ps.executeQuery();
 			// 5-Présenter les résultats
 			rs.next();
-			c.setId(rs.getInt("id"));
-			c.setNom(rs.getString("nom"));
-			c.setPrenom(rs.getString("prenom"));
+			c.setId(rs.getInt("idConseiller"));
+			c.setNom(rs.getString("nomConseiller"));
+			c.setPrenom(rs.getString("prenomConseiller"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,11 +47,12 @@ public class DAO implements Idao {
 	}
 
 	@Override
-	public Collection<Client> listerClients() throws ClassNotFoundException {
+	public Collection<Client> listerClients(Conseiller cons) throws ClassNotFoundException {
 		Collection<Client> cl = new ArrayList<Client>();
 		try {
 			Connection conn = DAOConnexion.getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT nomClient, prenomClient, entreprise from client");
+			PreparedStatement ps = conn.prepareStatement("SELECT nomClient, prenomClient, entreprise from client where idConseiller like ?");
+			ps.setString(1, "%"+cons.getId()+"%");
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -63,14 +62,15 @@ public class DAO implements Idao {
 				c.setEntreprise(rs.getBoolean("entreprise"));
 				cl.add(c);
 			}
-			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+			//code qui est exécuté dans tous les cas
+			// 6- Fermer la connexion
+			DAOConnexion.closeConnection();
 		}
 		return cl;
-
 	}
 
 	@Override
@@ -93,11 +93,13 @@ public class DAO implements Idao {
 			ps2.setString(3, ville);
 			ps2.setString(4, codepostal);
 			ps2.executeUpdate();
-			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+			//code qui est exécuté dans tous les cas
+			// 6- Fermer la connexion
+			DAOConnexion.closeConnection();
 		}
 
 	}

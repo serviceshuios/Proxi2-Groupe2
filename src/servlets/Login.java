@@ -31,22 +31,23 @@ public class Login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//1- Récupération les paramètres
-		Conseiller c = new Conseiller();
+		Conseiller cons = new Conseiller();
 		String login = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
 		//2- Traitement avec la couche service
 		try {
-			c = ics.authentificationConseiller(login, mdp);
+			cons = ics.authentificationConseiller(login, mdp);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(c.getId()!=0){
+		if(cons.getId()==0)
+		{
 		//3- Session 
 		HttpSession session = request.getSession();
-		session.setAttribute("leConseiller", c);
+		session.setAttribute("leConseiller", cons);
 		
 		//4- Préparation de l'envoi
 		

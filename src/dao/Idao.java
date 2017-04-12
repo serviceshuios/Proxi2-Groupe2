@@ -26,7 +26,7 @@ public interface Idao {
 	 *         authentifié
 	 * @throws ClassNotFoundException
 	 */
-	public Collection<Client> listerClients() throws ClassNotFoundException;
+	public Collection<Client> listerClients(Conseiller cons) throws ClassNotFoundException;
 
 	/**
 	 * Méthode permettant à un conseiller d'afficher la liste des comptes de ses

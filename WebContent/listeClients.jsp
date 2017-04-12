@@ -104,6 +104,7 @@
 					<th>Id</th>
 					<th>Nom</th>
 					<th>Prénom</th>
+					<th>Entreprise</th>
 					<th></th>
 					<th></th>
 					<th></th>
@@ -116,6 +117,7 @@
 						<td><c:out value="${c.id}"></c:out></td>
 						<td><c:out value="${c.nom}"></c:out></td>
 						<td><c:out value="${c.prenom}"></c:out></td>
+						<td><c:out value="${c.entreprise}"></c:out></td>
 						<td><a class="btn btn-link"
 							href="GestionClients?action=editionClients&id=<c:out value='${c.id}'></c:out>" role="button">Modifier</a></td>
 						<td><a class="btn btn-link"
@@ -125,7 +127,7 @@
 					</tr>
 					</tbody>
 				</c:forEach>
-			</c:if>
+				</c:if>
 			</table>
 	</div>
 	</div>

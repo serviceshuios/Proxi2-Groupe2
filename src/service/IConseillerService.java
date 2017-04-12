@@ -16,7 +16,7 @@ import service.exceptions.SoldeInsuffisantException;
 public interface IConseillerService {
 	
 	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException;
-	public Collection<Client> listerClients(Conseiller cons, Client c) throws ClassNotFoundException, ClientGererParAutreConseillerException;
+	public Collection<Client> listerClients(Conseiller cons) throws ClassNotFoundException;
 	public Collection<Compte> listerComptes(Conseiller cons, Client c) throws ClientGererParAutreConseillerException;
 	void effectuerVirement(Conseiller conseiller, Compte compteEmetteur, Compte compteRecepteur, double montant)
 			throws SoldeInsuffisantException, MontantNegatifException, SQLException,
