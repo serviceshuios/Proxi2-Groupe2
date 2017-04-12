@@ -63,10 +63,7 @@ public class ConseillerService implements IConseillerService {
 	}
 
 	@Override
-	public Collection<Compte> listerComptes(Conseiller cons, Client c) throws ClientGererParAutreConseillerException {
-		if (!cons.getClients().contains(c)) {
-			throw new ClientGererParAutreConseillerException("Ce conseiller ne gère pas ce client");
-		}
+	public Collection<Compte> listerComptes(Conseiller cons){
 		return idao.listerComptes();
 	}
 
