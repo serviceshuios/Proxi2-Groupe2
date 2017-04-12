@@ -62,12 +62,19 @@ public class DAO implements Idao {
 				c.setEntreprise(rs.getBoolean("entreprise"));
 				cl.add(c);
 			}
+<<<<<<< HEAD
+=======
+			
+>>>>>>> branch 'master' of https://github.com/serviceshuios/Proxi2-Groupe2.git
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+<<<<<<< HEAD
 			//code qui est exécuté dans tous les cas
 			// 6- Fermer la connexion
+=======
+>>>>>>> branch 'master' of https://github.com/serviceshuios/Proxi2-Groupe2.git
 			DAOConnexion.closeConnection();
 		}
 		return cl;
