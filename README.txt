@@ -1,7 +1,7 @@
 Consignes d'installation et d'exécution de l'application ProxibanqueSI-GOPE
 
-1/ Décompressez le fichier .ear reçu dans le dossier de votre choix. Cette archive contient un .jar et un .war qui vous serviront à installer l'application. 
-	Notez bien le dossier dans lequel vous les avez extraits.
+1/ Décompressez le fichier .rar reçu dans le dossier de votre choix. Cette archive contient un .war qui vous servira à lancer l'application. 
+	Notez bien le dossier dans lequel vous l' avez extraite.
 
 2/ Vérifiez que la JRE (Java Runtime Environment) est bien installée sur votre poste de travail.
 	Pour cela, tapez dans l'invite de commande "java -version".
@@ -20,8 +20,11 @@ Consignes d'installation et d'exécution de l'application ProxibanqueSI-GOPE
 	
 3/ Mise en place du serveur d'application :
 	3.1/ Téléchargez (si vous ne l'avez pas déjà), le serveur Tomcat 9 selon les propriétés de votre poste de travail. 
-			Lien pour la page de téléchargement : http://tomcat.apache.org/download-90.cgi
-	3.2/ Précisez les variables d'environnement. Dans l'invit de commande, pointer sur le dossier bin contenu dans le dossier tomcat 9.0.0.M19 précédemment téléchargé et décompressé dans le dossier de votre choix.
+		 Lien pour la page de téléchargement : http://tomcat.apache.org/download-90.cgi
+		 
+	3.2/ Dézipper le fichier téléchargé et placer le dossier apache-tomcat-9.0.0.M19 obtenu dans le dossier de votre choix.
+		
+	3.2/ Précisez les variables d'environnement. Dans l'invit de commande, pointer sur le dossier bin contenu dans le dossier apache-tomcat-9.0.0.M19 précédemment téléchargé et décompressé dans le dossier de votre choix.
 			Puis écrivez la commande suivante : SET JRE_HOME="chemin de votre JRE" (le dossier JRE se situe souvent dans ProgramFiles>Java).
 			
 4/ Mise en place de la base de données :
@@ -40,8 +43,9 @@ Consignes d'installation et d'exécution de l'application ProxibanqueSI-GOPE
 6/ Vous pouvez vérifier le contenu du nouveau dossier pointé grâce à la commande "dir" dans l'invite de commande.
 	Le fichier ProxiBanqueSIV1.war doit s'afficher dans l'invite commande.
 	
-7/ Depuis l'invite commande lancez l'application grâce à la commande suivante :
-	java -war ProxiBanqueSIV2.war
+7/ Placez le fichier .war dans le dossier webapps du dossier tomcat 9.0.0.M19 (voir 3.2/).
+
+8/ Dans le dossier bin du dossier apache-tomcat-9.0.0.M19, lancer l'application en double-cliquant sur startup.bat
 
 
 N'hésitez pas à regarder les fonctionalités de l'application grâce à notre Javadoc

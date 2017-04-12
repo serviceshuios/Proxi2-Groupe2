@@ -11,7 +11,16 @@ import service.exceptions.ClientInexistantException;
 public interface Idao {
 
 	/**
-	 * Méthode permetant à un conseiller de lister ses clients
+	 * Méthode permettant de retrouver un conseiller par son login et son mot de passe
+	 * 
+	 * @return Le conseiller s'il existe
+	 * @throws ClassNotFoundException
+	 */
+	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException;
+	
+	
+	/**
+	 * Méthode permettant à un conseiller de lister ses clients
 	 * 
 	 * @return La liste des informations client pour les clients du conseiller
 	 *         authentifié

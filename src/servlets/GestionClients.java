@@ -31,12 +31,7 @@ public class GestionClients extends HttpServlet {
 			
 			request.getRequestDispatcher("/editionClient.jsp").forward(request,response);
 		}
-		
-		if(request.getParameter("action").equals("authentification"))
-		{
-			
-			request.getRequestDispatcher("/index").forward(request,response);
-		}
+
 		
 		if(request.getParameter("action").equals("listeClients"))
 		{

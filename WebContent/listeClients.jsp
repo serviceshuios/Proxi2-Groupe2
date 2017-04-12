@@ -26,19 +26,20 @@
 		</div>
 	</nav>
 	<div class="container">
-		<form>
+		<div class="row">
+		<form class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 		<legend class="legende">Création d'un nouveau client</legend>
 			<div class="form-group row">
-				<label for="nom" class="col-xs-4 col-form-label">Saisir le
+				<label for="nom" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-form-label">Saisir le
 					nom</label>
-				<div class="col-xs-8">
-					<input type="text" class="form-control" id="nom" placeholder="nom">
+				<div>
+					<input type="text" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 form-control" id="nom" placeholder="nom">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label for="prenom" class="col-xs-4 col-form-label">Saisir
 					le prénom</label>
-				<div class="col-xs-8">
+				<div>
 					<input type="text" class="form-control" id="nom"
 						placeholder="prenom">
 				</div>
@@ -46,7 +47,7 @@
 			<div class="form-group row">
 				<label for="adresse" class="col-xs-4 col-form-label">Saisir
 					le numéro et la rue</label>
-				<div class="col-xs-8">
+				<div>
 					<input type="text" class="form-control" id="adresse"
 						placeholder="numéro et rue">
 				</div>
@@ -54,7 +55,7 @@
 			<div class="form-group row">
 				<label for="ville" class="col-xs-4 col-form-label">Saisir la
 					ville</label>
-				<div class="col-xs-8">
+				<div>
 					<input type="text" class="form-control" id="ville"
 						placeholder="ville">
 				</div>
@@ -62,7 +63,7 @@
 			<div class="form-group row">
 				<label for="codepostal" class="col-xs-4 col-form-label">Saisir
 					le code postal</label>
-				<div class="col-xs-8">
+				<div>
 					<input type="text" class="form-control" id="codepostal"
 						placeholder="code postal">
 				</div>
@@ -70,7 +71,7 @@
 			<div class="form-group row">
 				<label for="telephone" class="col-xs-4 col-form-label">Saisir
 					le numéro de téléphone</label>
-				<div class="col-xs-8">
+				<div>
 					<input type="text" class="form-control" id="telephone"
 						placeholder="0102030406">
 				</div>
@@ -78,16 +79,27 @@
 			<div class="form-group row">
 				<label for="email" class="col-xs-4 col-form-label">Saisir
 					l'e-mail</label>
-				<div class="col-xs-8">
+				<div>
 					<input type="text" class="form-control" id="email"
 						placeholder="exemple@exemple.com">
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Valider</button>
 		</form>
+		<div class="row col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<a class="btn btn-link"
+			href="GestionClients?action=virementCompteACompte" role="button">Virement compte à compte</a>
+		</div>
+		</div>
+		</div>
+		<div class="container">
+		<div class="row">
+			<button type="submit" class="btn btn-primary">Valider</button>
+		</div>
 		</div>
 		<div class="container">
 			<table class="table row">
+			<legend class="legende">Clients</legend>
+			<thead class="thead-inverse">
 				<tr>
 					<th>Id</th>
 					<th>Nom</th>
@@ -96,8 +108,10 @@
 					<th></th>
 					<th></th>
 				</tr>
+			</thead>
 				<c:if test="${! empty listeClients}">
 				<c:forEach var="c" items="${listeClients}">
+					<tbody>
 					<tr>
 						<td><c:out value="${c.id}"></c:out></td>
 						<td><c:out value="${c.nom}"></c:out></td>
@@ -109,6 +123,7 @@
 						<td><a class="btn btn-link"
 							href="GestionClients?action=listeComptes" role="button">Comptes</a></td>
 					</tr>
+					</tbody>
 				</c:forEach>
 			</c:if>
 			</table>

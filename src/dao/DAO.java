@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.hamcrest.core.IsNot;
-import org.hamcrest.core.IsNull;
-
 import metier.Client;
 import metier.Compte;
 import metier.CompteCourant;
@@ -18,6 +15,42 @@ import metier.Conseiller;
 import service.exceptions.ClientInexistantException;
 
 public class DAO implements Idao {
+	
+
+	@Override
+	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException {
+		try {
+			// 1-Charger le pilote et créer la connexion
+			Connection conn = DAOConnexion.getConnection();
+			// 2-Créer la requête
+			// Le SQL recquiert des simples quotes ' => concaténation pour avoir le bon format
+			//PreparedStatement ps = conn.prepareStatement("insert into Client(nom,prenom) VALUES('"+c.getNom()+"','"+c.getPrenom()+"')");
+			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login like ? and mdp like ?");
+			ps.setString(1, "%"+login+"%");
+			ps.setString(1, "%"+mdp+"%");
+			// 4-Exécuter la requête
+			ResultSet rs = ps.executeQuery();
+			// 5-Présenter les résultats
+			rs.next();
+			Conseiller c = new Conseiller();
+			c.setId(rs.getInt("id"));
+			c.setNom(rs.getString("nom"));
+			c.setPrenom(rs.getString("prenom"));
+			c.setCouleurYeux(rs.getString("couleurYeux"));
+			c.setAge(rs.getInt("age"));
+			cl.add(c);
+			// 5-Présenter les résultats
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		finally {
+			//code qui est exécuté dans tous les cas
+			// 6- Fermer la connexion
+			DaoConnexion.closeConnection();
+		}
+	}
 
 	@Override
 	public Collection<Client> listerClients() throws ClassNotFoundException {
@@ -33,7 +66,6 @@ public class DAO implements Idao {
 				c.setPrenom(rs.getString("prenomClient"));
 				c.setEntreprise(rs.getBoolean("entreprise"));
 				cl.add(c);
-
 			}
 			conn.close();
 		} catch (SQLException e) {

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 import dao.DAO;
+import dao.Idao;
 import metier.Client;
 import metier.Compte;
 import metier.CompteCourant;
@@ -18,8 +19,13 @@ import service.exceptions.SoldeInsuffisantException;
 
 public class ConseillerService implements IConseillerService {
 
-	private dao.Idao idao = new DAO();
+	private Idao idao = new DAO();
 
+	@Override
+	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException {
+		return idao.authentificationConseiller(login, mdp);
+	}
+	
 	@Override
 	public Collection<Client> listerClients(Conseiller conseiller, Client c)
 			throws ClassNotFoundException, ClientGererParAutreConseillerException {
