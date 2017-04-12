@@ -38,11 +38,12 @@ public class Login extends HttpServlet {
 		String mdp = request.getParameter("mdp");
 		//2- Traitement avec la couche service
 		try {
-			c = ics.authentificationConseiller(login,mdp);
+			c = ics.authentificationConseiller(login, mdp);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(c.getId()!=0){
 		//3- Session 
 		HttpSession session = request.getSession();
 		session.setAttribute("leConseiller", c);
@@ -51,6 +52,7 @@ public class Login extends HttpServlet {
 		
 		//5- Envoi à la JSP
 		request.getRequestDispatcher("/listeClients.jsp").forward(request,response);
+		}
 	}
 
 	/**

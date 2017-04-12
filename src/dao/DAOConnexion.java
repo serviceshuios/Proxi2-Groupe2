@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DAOConnexion {
 	private static final String pilote="com.mysql.jdbc.Driver";
-	private static final String URL="jdbc:mysql://localhost:3306/bddproxi2";
+	private static final String URL="jdbc:mysql://localhost:3306/bddproxiv2";
 	private static final String user="root";
 	private static final String pwd="";
 	private static Connection conn=null;
