@@ -78,7 +78,7 @@ public interface Idao {
 	 *            Nouvel email du client à modifier
 	 */
 	void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
-			String email);
+			String email, String telephone);
 
 	void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse,
 			String telephone, String ville, String email, String codepostal) throws SQLException;

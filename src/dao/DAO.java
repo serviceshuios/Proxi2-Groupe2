@@ -75,7 +75,7 @@ public class DAO implements Idao {
 
 	@Override
 	public void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
-			String email) {
+			String email, String telephone) {
 		try {
 
 			Connection conn = DAOConnexion.getConnection();
@@ -86,13 +86,14 @@ public class DAO implements Idao {
 			ps1.setInt(3, idClient);
 			ps1.executeUpdate();
 			PreparedStatement ps2 = conn
-					.prepareStatement("UPDATE Coordonnees SET email = ?, adresse = ?, ville = ?, codepostal = ? "
+					.prepareStatement("UPDATE Coordonnees SET email = ?, adresse = ?, ville = ?, codepostal = ?, telephone = ? "
 							+ "where idClient = ?");
 			ps2.setString(1, email);
 			ps2.setString(2, adresse);
 			ps2.setString(3, ville);
 			ps2.setString(4, codepostal);
-			ps2.setInt(5, idClient);
+			ps2.setString(5, telephone);
+			ps2.setInt(6, idClient);
 			ps2.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
