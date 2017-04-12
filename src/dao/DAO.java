@@ -28,7 +28,7 @@ public class DAO implements Idao {
 			//PreparedStatement ps = conn.prepareStatement("insert into Client(nom,prenom) VALUES('"+c.getNom()+"','"+c.getPrenom()+"')");
 			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login like ? and mdp like ?");
 			ps.setString(1, "%"+login+"%");
-			ps.setString(1, "%"+mdp+"%");
+			ps.setString(2, "%"+mdp+"%");
 			// 4-Exécuter la requête
 			ResultSet rs = ps.executeQuery();
 			// 5-Présenter les résultats
