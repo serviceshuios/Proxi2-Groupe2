@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,17 +20,18 @@ import service.ConseillerService;
 import service.IConseillerService;
 
 /**
- * Servlet implementation class GestionClients
+ * Servlet implementation class ListerClients
  */
-@WebServlet("/GestionClients")
-public class GestionClients extends HttpServlet {
+@WebServlet("/ListerClients")
+public class ListerClients extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private IConseillerService ics = new ConseillerService();
 
     /**
      * Default constructor. 
      */
-    public GestionClients() {
+    public ListerClients() {
+    	super();
         // TODO Auto-generated constructor stub
     }
 
@@ -39,24 +41,11 @@ public class GestionClients extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		HttpSession session = request.getSession();
-		if (session.getAttribute("leConseiller")!=null){
-		
-		Conseiller cons = (Conseiller) session.getAttribute("leConseiller");
-		
-		if(request.getParameter("action").equals("editionClient"))
-		{
-			
-			request.getRequestDispatcher("/editionClient.jsp").forward(request,response);
-		}
-
-		
-		if(request.getParameter("action").equals("listeClients"))
-		{
-			
+		Conseiller cons = (Conseiller) session.getAttribute("leConseiller");	
 			//2- Traitement avec la couche service
-			Collection<Client> listeClients=new ArrayList();
+		List<Client> listeClients = new ArrayList<Client>();
 			try {
-				listeClients = ics.listerClients(cons);
+				listeClients = (List<Client>) ics.listerClients(cons);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -66,31 +55,8 @@ public class GestionClients extends HttpServlet {
 			// Deuxième paramètre : objet que l'on veut envoyer
 			// En général, on met le même nom pour les deux paramètres
 			request.setAttribute("listeClients", listeClients);
-			//4 Envoi à la JSP	
+			//4 Envoi à la JSP
 			request.getRequestDispatcher("/listeClients.jsp").forward(request,response);
-		}
-		
-		if(request.getParameter("action").equals("listeComptesClients"))
-		{
-			
-			request.getRequestDispatcher("/listeComptesClient.jsp").forward(request,response);
-		}
-		
-		if(request.getParameter("action").equals("virementCompteACompte"))
-		{
-			
-			request.getRequestDispatcher("/virementCompteACompte.jsp").forward(request,response);
-		}
-		
-		if(request.getParameter("action").equals("erreur"))
-		{
-			
-			request.getRequestDispatcher("/erreur.jsp").forward(request,response);
-		}
-		}
-		else{
-			request.getRequestDispatcher("/authentificationConseiller.jsp").forward(request,response);
-		}
 	}
 
 	/**
