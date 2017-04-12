@@ -54,6 +54,9 @@ public class Login extends HttpServlet {
 		//5- Envoi à la JSP
 		request.getRequestDispatcher("/listeClients.jsp").forward(request,response);
 		}
+		else {
+			request.getRequestDispatcher("/erreurAuthentification.jsp").forward(request,response);
+		}
 	}
 
 	/**

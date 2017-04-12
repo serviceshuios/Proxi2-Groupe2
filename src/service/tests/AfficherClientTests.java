@@ -26,7 +26,7 @@ public class AfficherClientTests {
 		
 		
 		// afficher client d'un autre conseiller
-		cs.listerClients(cons2, cl);
+		cs.listerClients(cons2);
 	}
 
 }
