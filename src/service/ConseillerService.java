@@ -67,7 +67,7 @@ public class ConseillerService implements IConseillerService {
 
 	@Override
 	public void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,String email, String telephone) {
-		idao.modifierClient(idClient, prenom,  nom,  ville,  adresse,  codepostal, email);
+		idao.modifierClient(idClient, prenom,  nom,  ville,  adresse,  codepostal, email, telephone);
 
 	}
 
