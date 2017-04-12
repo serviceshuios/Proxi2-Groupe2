@@ -21,7 +21,7 @@
 				<li  class="active"><a href="#">Clients</a></li>
 				<li><a href="#">Modification d'un client</a></li>
 				<li><a href="#">Comptes d'un client</a></li>
-				<li><a href="#">Virement</a></li>
+				<li><a href="GestionClients?action=virementCompteACompte">Virement</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -85,10 +85,7 @@
 				</div>
 			</div>
 		</form>
-		<div class="row col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<a class="btn btn-link"
-			href="GestionClients?action=virementCompteACompte" role="button">Virement compte à compte</a>
-		</div>
+		
 		</div>
 		</div>
 		<div class="container">

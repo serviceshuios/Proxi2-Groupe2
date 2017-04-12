@@ -11,20 +11,27 @@ import service.exceptions.ClientInexistantException;
 public interface Idao {
 
 	/**
-	 * Méthode permettant de retrouver un conseiller par son login et son mot de passe
+	 * Méthode permettant de retrouver un conseiller par son login et son mot de
+	 * passe
 	 * 
 	 * @return Le conseiller s'il existe
 	 * @throws ClassNotFoundException
+	 *             Exception si le conseiller n'existe pas
+	 * @param login login du conseiller
+	 * @param mdp mot de passe du conseiller
+	 * 
 	 */
 	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException;
-	
-	
+
 	/**
-	 * Méthode permettant à un conseiller de lister ses clients
+	 *  Méthode permettant à un conseiller de lister ses clients
 	 * 
 	 * @return La liste des informations client pour les clients du conseiller
 	 *         authentifié
-	 * @throws ClassNotFoundException
+	 * @throws ClassNotFoundException Exception si la classe de client concerné n'existe pas
+	 *
+	 * @param cons Conseiller définit par l'authentification
+	 * 
 	 */
 	public Collection<Client> listerClients(Conseiller cons) throws ClassNotFoundException;
 
@@ -33,6 +40,8 @@ public interface Idao {
 	 * clients
 	 * 
 	 * @return La liste des comptes des clients du conseiller authentifié
+	 * @param cl Le client dont on veut afficher les comptes
+	 * 
 	 */
 	public Collection<Compte> listerComptes(Client cl);
 
@@ -43,7 +52,7 @@ public interface Idao {
 	 *            Compte dont le solde est modifié suite à un virement
 	 * @param montant
 	 *            Montant du virement à effectuer
-	 * @throws SQLException
+	 * @throws SQLException Erreur due à la comlmlunication avec la base de données
 	 */
 	void ajoutSolde(Compte c, double montant) throws SQLException;
 
@@ -54,7 +63,7 @@ public interface Idao {
 	 *            Compte dont le solde est modifié suite à un virement
 	 * @param montant
 	 *            Montant du virement à effectuer
-	 * @throws SQLException
+	 * @throws SQLException Erreur due à la comlmlunication avec la base de données
 	 */
 	void retraitSolde(Compte c, double montant) throws SQLException;
 
@@ -70,12 +79,13 @@ public interface Idao {
 	 *            Nouveau nom du client à modifier
 	 * @param ville
 	 *            Nouvelle ville du client à modifier
-	 * @param rue
+	 * @param adresse
 	 *            Nouvelle rue du client à modifier
 	 * @param codepostal
 	 *            Nouveau code postal du client à modifier
 	 * @param email
 	 *            Nouvel email du client à modifier
+	 * @param telephone Nouveau numéro de téléphone du client à modifier
 	 */
 	void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
 			String email, String telephone);

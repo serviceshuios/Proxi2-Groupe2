@@ -27,7 +27,7 @@
 	</nav>
 	<div class="container">
 		<div class ="row">
-		<p>Echec d'authentification Conseiller. Essayer à nouveau </p>
+		<p id="texter">Echec d'authentification Conseiller. Essayer à nouveau </p>
 		</div>
 	</div>
 	</div>
