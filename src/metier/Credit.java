@@ -2,21 +2,22 @@ package metier;
 
 /**
  * La classe Credit permet de définir un crédit
- * @author BERNY OTHMANE
- * @version 1.0
+ * 
+ * @author Perrine EMIN et Guillaume OTHMANE
+ * 
  */
 public abstract class Credit {
-	
+
 	/**
 	 * Le taux du crédit en %.
 	 */
 	private float taux;
-	
+
 	/**
 	 * La durée du crédit en mois.
 	 */
 	private int duree;
-	
+
 	/**
 	 * Le montant du credit.
 	 */
@@ -24,9 +25,13 @@ public abstract class Credit {
 
 	/**
 	 * Constructeur de la classe Credit avec arguments
-	 * @param taux : le taux du crédit
-	 * @param duree : la durée du crédit
-	 * @param montant : le montant du crédit
+	 * 
+	 * @param taux
+	 *            le taux du crédit
+	 * @param duree
+	 *            la durée du crédit
+	 * @param montant
+	 *            le montant du crédit
 	 */
 	public Credit(float taux, int duree, double montant) {
 		super();
@@ -37,6 +42,7 @@ public abstract class Credit {
 
 	/**
 	 * Getter de l'attribut taux
+	 * 
 	 * @return le taux du crédit
 	 */
 	public float getTaux() {
@@ -45,7 +51,9 @@ public abstract class Credit {
 
 	/**
 	 * Setter de l'attribut taux
-	 * @param taux : le taux du crédit
+	 * 
+	 * @param taux
+	 *            le taux du crédit
 	 */
 	public void setTaux(float taux) {
 		this.taux = taux;
@@ -53,6 +61,7 @@ public abstract class Credit {
 
 	/**
 	 * Getter de l'attribut duree
+	 * 
 	 * @return la durée du crédit
 	 */
 	public int getDuree() {
@@ -61,7 +70,9 @@ public abstract class Credit {
 
 	/**
 	 * Setter de l'attribut duree
-	 * @param duree la durée du crédit
+	 * 
+	 * @param duree
+	 *            la durée du crédit
 	 */
 	public void setDuree(int duree) {
 		this.duree = duree;
@@ -69,6 +80,7 @@ public abstract class Credit {
 
 	/**
 	 * Getter de l'attribut montant
+	 * 
 	 * @return le montant du crédit
 	 */
 	public double getMontant() {
@@ -77,13 +89,17 @@ public abstract class Credit {
 
 	/**
 	 * Setter de l'attribut montant
-	 * @param montant le montant du crédit
+	 * 
+	 * @param montant
+	 *            le montant du crédit
 	 */
 	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

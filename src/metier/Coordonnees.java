@@ -4,15 +4,9 @@
 package metier;
 
 /**
- * Classe pour la gestion des adresses et des numeros de telephone. Les
- * proprietes adresse, ville, cp (pour code postal) et telephone sont des
- * varaibles String qui sont cachees a l'exterieur de la classe. Il existe un
- * seul constructeurs qui prend en parametre l'adresse, la ville, le code
- * postal, et le numero de telephone, tous en String. Pour chaque propriete il
- * existe des methodes getter et setter. Il existe egalement une methode
- * toString() pour l'affichage d'une date.
+ * Classe pour la gestion des adresses et des numeros de telephone.
  * 
- * @author Konrad THOMAS et VIncent PANOUILLERES
+ * @author Perrine EMIN et Guillaume OTHMANE
  */
 
 public class Coordonnees {
@@ -25,7 +19,7 @@ public class Coordonnees {
 	private String email;
 
 	/**
-	 * Contructeur de la classe coordonnées
+	 * Constructeur de la classe coordonnées
 	 * 
 	 * @param adresse
 	 *            Detail de l'adresse
@@ -35,13 +29,16 @@ public class Coordonnees {
 	 *            Code postal associe a la ville
 	 * @param telephone
 	 *            Telephone
+	 * @param email
+	 *            email
 	 */
-	public Coordonnees(String adresse, String ville, String cp, String telephone) {
+	public Coordonnees(String adresse, String ville, String cp, String telephone, String email) {
 		super();
 		this.adresse = adresse;
 		this.ville = ville;
 		this.cp = cp;
 		this.telephone = telephone;
+		this.email = email;
 	}
 
 	/**
@@ -131,7 +128,9 @@ public class Coordonnees {
 
 	/**
 	 * Setter de l'email
-	 * @param email Email du client
+	 * 
+	 * @param email
+	 *            Email du client
 	 */
 	public void setEmail(String email) {
 		this.email = email;

@@ -5,7 +5,7 @@ import java.util.Collection;
 
 /**
  * Classe représentant les conseiller de l'agence. Elle hérite de la classe Personne
- * @author Jérome IZARD et Perrine EMIN
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public class Conseiller extends Personne {

@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * Classe abstraite représentant les comptes des clients de la banque
- * @author Jérome IZARD et Perrine EMIN
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public abstract class Compte {

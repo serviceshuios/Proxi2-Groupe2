@@ -1,23 +1,26 @@
 package metier;
 
 /**
- * Classe domaine metier: placement. Cette classe comprend l'ensemble des donnes relative a un placement. Cette classe est instanciee lorsqu'un placement est fait au nom d'un client
- * Le placement possede trois proprietes: Le client pour qui a ete fait le placement, le montant du placement et la Place financiere a laquelle est lie le placement
- * @author Konrad THOMAS et VIncent PANOUILLERES
+ * Cette classe comprend l'ensemble des donnes relative a un placement.
+ * 
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public class Placement {
-	
+
 	// Proprietes
 	private Client client;
 	private double montant;
 	private String placeFinanciere;
-	
+
 	// Constructeur
 	/**
-	 * @param client Le client associe au placement
-	 * @param montant Le montant du placement
-	 * @param placeFinanciere La place financiere a laquelle on a fait le placement.
+	 * @param client
+	 *            Le client associe au placement
+	 * @param montant
+	 *            Le montant du placement
+	 * @param placeFinanciere
+	 *            La place financiere pour laquelle on a fait le placement.
 	 */
 	public Placement(Client client, double montant, String placeFinanciere) {
 		super();
@@ -28,48 +31,65 @@ public class Placement {
 
 	// Getters et Setters
 	/**
-	 * @return the client
+	 * Getter de l'attribut client
+	 * 
+	 * @return the client client qui effectue le placement
 	 */
 	public Client getClient() {
 		return client;
 	}
 
 	/**
-	 * @param client the client to set
+	 * Setter de l'attribut client
+	 * 
+	 * @param client
+	 *            the client to set client qui effectue le placement
 	 */
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
 	/**
-	 * @return the montant
+	 * Getter de l'attribut montant
+	 * 
+	 * @return the montant montant du placement
 	 */
 	public double getMontant() {
 		return montant;
 	}
 
 	/**
-	 * @param montant the montant to set
+	 * Setter de l'attribut montant
+	 * 
+	 * @param montant
+	 *            the montant to set montant du placement
 	 */
 	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 
 	/**
-	 * @return the placeFinancier
+	 * Getter de l'attribut placeFinanciere
+	 * 
+	 * @return the placeFinancier place financière du placement
 	 */
 	public String getPlaceFinanciere() {
 		return placeFinanciere;
 	}
 
 	/**
-	 * @param placeFinanciere the placeFinancier to set
+	 * Setter de l'attribut placeFinanciere
+	 * 
+	 * @param placeFinanciere
+	 *            the placeFinancier to set place financière du placement
 	 */
 	public void setPlaceFinanciere(String placeFinanciere) {
 		this.placeFinanciere = placeFinanciere;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * Classe abstraite représentant les cartes bancaires proposées aux clients
- * @author Jérome IZARD et Perrine EMIN
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public abstract class Carte {

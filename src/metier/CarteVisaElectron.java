@@ -2,7 +2,7 @@ package metier;
 
 /**
  * Classe représentant un type particulier de carte bancaire, la Visa Electron
- * @author Jérome IZARD et Perrine EMIN
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public class CarteVisaElectron extends Carte {

@@ -2,7 +2,7 @@ package metier;
 
 /**
  * Classe représentant un type spécifique de compte, les comptes courants
- * @author Jérome IZARD et Perrine EMIN
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public class CompteCourant extends Compte {

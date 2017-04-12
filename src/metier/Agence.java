@@ -4,7 +4,7 @@ import java.util.Collection;
 
 /**
  * Classe représentant une agence
- * @author Jérome IZARD et Perrine EMIN
+ * @author Perrine EMIN et Guillaume OTHMANE
  *
  */
 public class Agence {
