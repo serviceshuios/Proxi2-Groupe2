@@ -46,7 +46,6 @@ Consignes d'installation et d'exécution de l'application ProxibanqueSI-GOPE
 7/ Placez le fichier .war dans le dossier webapps du dossier tomcat 9.0.0.M19 (voir 3.2/).
 
 8/ Dans le dossier bin du dossier apache-tomcat-9.0.0.M19, lancer l'application en double-cliquant sur startup.bat
-   Ou tapez dans la barre de votre navigateur http://localhost:8085/ProxiBanqueV2GOPE
 
 N'hésitez pas à regarder les fonctionalités de l'application grâce à notre fichier index_javadoc contenu dans le javadoc.rar
 
