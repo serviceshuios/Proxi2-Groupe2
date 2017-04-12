@@ -27,18 +27,10 @@ public class ConseillerService implements IConseillerService {
 	}
 	
 	@Override
-<<<<<<< HEAD
 	public Collection<Client> listerClients(Conseiller cons)
 			throws ClassNotFoundException {
 		return idao.listerClients(cons);}
-=======
-	public Collection<Client> listerClients(Conseiller conseiller){
-			
-		return idao.listerClients();
-
-	}
->>>>>>> branch 'master' of https://github.com/serviceshuios/Proxi2-Groupe2.git
-
+	
 	@Override
 	public void effectuerVirement(Conseiller conseiller, Compte compteEmetteur, Compte compteRecepteur, double montant)
 			throws SoldeInsuffisantException, MontantNegatifException, SQLException,
@@ -69,7 +61,7 @@ public class ConseillerService implements IConseillerService {
 	}
 
 	@Override
-	public Collection<Compte> listerComptes(Conseiller cons){
+	public Collection<Compte> listerComptes(Client cl){
 		return idao.listerComptes();
 	}
 

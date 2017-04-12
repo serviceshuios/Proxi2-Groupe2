@@ -26,7 +26,9 @@ public class DAO implements Idao {
 			// 2-Créer la requête
 			// Le SQL recquiert des simples quotes ' => concaténation pour avoir le bon format
 			//PreparedStatement ps = conn.prepareStatement("insert into Client(nom,prenom) VALUES('"+c.getNom()+"','"+c.getPrenom()+"')");
-			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login = 'test'");
+			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login = ? and mdp =?");
+			ps.setString(1, login);
+			ps.setString(2, mdp);
 			// 4-Exécuter la requête
 			ResultSet rs = ps.executeQuery();
 			// 5-Présenter les résultats
@@ -62,19 +64,10 @@ public class DAO implements Idao {
 				c.setEntreprise(rs.getBoolean("entreprise"));
 				cl.add(c);
 			}
-<<<<<<< HEAD
-=======
-			
->>>>>>> branch 'master' of https://github.com/serviceshuios/Proxi2-Groupe2.git
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-<<<<<<< HEAD
-			//code qui est exécuté dans tous les cas
-			// 6- Fermer la connexion
-=======
->>>>>>> branch 'master' of https://github.com/serviceshuios/Proxi2-Groupe2.git
 			DAOConnexion.closeConnection();
 		}
 		return cl;
