@@ -26,7 +26,9 @@
 		</div>
 	</nav>
 	<div class="container">
-		<p>Erreur d'authentification</p>
+		<div class ="row">
+		<p>Echec d'authentification Conseiller. Essayer à nouveau </p>
+		</div>
 	</div>
 	</div>
 	<div id="footer">

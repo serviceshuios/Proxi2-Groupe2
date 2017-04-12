@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-	<div id="wrap">
+<div id="wrap">
 		<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -25,21 +25,17 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="container">
-		<form method="post" action="Login"
-			class="form-inline row">
-			<fieldset>
-			<legend class="legende">Authentification</legend>
-			<label class="sr-only" for="login">Login</label> <input type="text"
-				class="col-4" id="login" placeholder="Identifiant"> <label
-				class="sr-only" for="mdp">MDP</label> <input type="password"
-				class="col-4" id="mdp" placeholder="Mot de passe">
+	<form method="post" action="Login">
+			<fieldset id="section-1">
+				<label for="login">Saisir le login :</label>
+				<input type="text" name="login" id="login" placeholder="Identifiant"/><br/>
+				<label for="mdp">Saisir le mdp :</label>
+				<input type="text" name="mdp" id="mdp" placeholder="Mot de passe"/><br/>
 			</fieldset>
-			<button type="submit" class="col-4 btn btn-primary">Valider</button>
-		</form>
-	</div>
-	</div>
-	<div id="footer">
+			<input class="btn btn-primary" type="submit" value="Submit">
+   </form>
+   </div>
+   <div id="footer">
       <div class="container">
         <p>ProxiBanque v2</p>
       </div>
