@@ -34,7 +34,7 @@ public interface Idao {
 	 * 
 	 * @return La liste des comptes des clients du conseiller authentifié
 	 */
-	public Collection<Compte> listerComptes();
+	public Collection<Compte> listerComptes(Client cl);
 
 	/**
 	 * Méthode permettant d'augmenter le solde d'un compte

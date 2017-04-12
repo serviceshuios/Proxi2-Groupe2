@@ -86,11 +86,12 @@ public class DAO implements Idao {
 			ps1.executeUpdate();
 			PreparedStatement ps2 = conn
 					.prepareStatement("UPDATE Coordonnees SET email = ?, adresse = ?, ville = ?, codepostal = ? "
-							+ "where client.idClient=coordonnees.idClient");
+							+ "where idClient = ?");
 			ps2.setString(1, email);
 			ps2.setString(2, adresse);
 			ps2.setString(3, ville);
 			ps2.setString(4, codepostal);
+			ps2.setInt(5, idClient);
 			ps2.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -104,14 +105,14 @@ public class DAO implements Idao {
 	}
 
 	@Override
-	public Collection<Compte> listerComptes() {
+	public Collection<Compte> listerComptes(Client cl) {
 		Collection<Compte> co = new ArrayList<Compte>();
 		try {
 			Connection conn = DAOConnexion.getConnection();
 			PreparedStatement ps = conn
 					.prepareStatement("SELECT nomClient, prenomClient, soldeCompteCourant, soldeCompteEpargne "
 							+ "FROM compteepargne, comptecourant, client"
-							+ "WHERE client.idClient=comptecourant.idClient"
+							+ "WHERE client.idClient=cl"
 							+ "AND client.idClient=compteepargne.idClient");
 			ResultSet rs = ps.executeQuery();
 
@@ -128,11 +129,11 @@ public class DAO implements Idao {
 				co.add(ce);
 
 			}
-			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+			DAOConnexion.closeConnection();
 		}
 		return co;
 	}
@@ -162,6 +163,8 @@ public class DAO implements Idao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		finally {
+			DAOConnexion.closeConnection();}
 
 	}
 
