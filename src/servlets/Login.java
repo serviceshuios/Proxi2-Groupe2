@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import service.ClientService;
-import service.IClientService;
+import metier.Conseiller;
+import service.ConseillerService;
+import service.IConseillerService;
 
 /**
  * Servlet implementation class Login
@@ -32,13 +33,19 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1- Récupération les paramètres
+		Conseiller c = new Conseiller();
 		String login = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
 		//2- Traitement avec la couche service
-		ics.authentification(login,mdp)
+		try {
+			c = ics.authentificationConseiller(login,mdp);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//3- Session 
 		HttpSession session = request.getSession();
-		session.setAttribute("lelogin", login);
+		session.setAttribute("leConseiller", c);
 		
 		//4- Préparation de l'envoi
 		

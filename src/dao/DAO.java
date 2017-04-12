@@ -19,6 +19,7 @@ public class DAO implements Idao {
 
 	@Override
 	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException {
+		Conseiller c = new Conseiller();
 		try {
 			// 1-Charger le pilote et créer la connexion
 			Connection conn = DAOConnexion.getConnection();
@@ -32,24 +33,19 @@ public class DAO implements Idao {
 			ResultSet rs = ps.executeQuery();
 			// 5-Présenter les résultats
 			rs.next();
-			Conseiller c = new Conseiller();
 			c.setId(rs.getInt("id"));
 			c.setNom(rs.getString("nom"));
 			c.setPrenom(rs.getString("prenom"));
-			c.setCouleurYeux(rs.getString("couleurYeux"));
-			c.setAge(rs.getInt("age"));
-			cl.add(c);
-			// 5-Présenter les résultats
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
 		finally {
 			//code qui est exécuté dans tous les cas
 			// 6- Fermer la connexion
-			DaoConnexion.closeConnection();
+			DAOConnexion.closeConnection();
 		}
+		return c;
 	}
 
 	@Override
