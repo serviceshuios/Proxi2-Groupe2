@@ -66,13 +66,8 @@ public class ConseillerService implements IConseillerService {
 	}
 
 	@Override
-	public void modifierClient(Conseiller conseiller, Client client) throws ClientGererParAutreConseillerException {
-		if (!conseiller.getClients().contains(client)) {
-			throw new ClientGererParAutreConseillerException("Ce conseiller ne gère pas ce client");
-		}
-		idao.modifierClient(client.getId(), client.getPrenom(), client.getNom(), client.getCoordonnees().getAdresse(),
-				client.getCoordonnees().getCp(), client.getCoordonnees().getVille(),
-				client.getCoordonnees().getEmail());
+	public void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,String email, String telephone) {
+		idao.modifierClient(idClient, prenom,  nom,  ville,  adresse,  codepostal, email);
 
 	}
 

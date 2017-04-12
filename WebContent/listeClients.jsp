@@ -119,11 +119,11 @@
 						<td><c:out value="${c.prenom}"></c:out></td>
 						<td><c:out value="${c.entreprise}"></c:out></td>
 						<td><a class="btn btn-link"
-							href="ModifierClient&id=<c:out value='${c.id}'></c:out>" role="button">Modifier</a></td>
+							href="ModifierClient?id=<c:out value='${c.id}'></c:out>" role="button">Modifier</a></td>
 						<td><a class="btn btn-link"
-							href="SupprimerClient&id=<c:out value='${c.id}'></c:out>" role="button">Supprimer</a></td>
+							href="SupprimerClient?id=<c:out value='${c.id}'></c:out>" role="button">Supprimer</a></td>
 						<td><a class="btn btn-link"
-							href="ListeComptes&id=<c:out value='${c.id}'></c:out>" role="button">Comptes</a></td>
+							href="ListeComptes?id=<c:out value='${c.id}'></c:out>" role="button">Comptes</a></td>
 					</tr>
 					</tbody>
 				</c:forEach>

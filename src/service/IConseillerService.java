@@ -14,19 +14,24 @@ import service.exceptions.NombreClientsMaxAtteintException;
 import service.exceptions.SoldeInsuffisantException;
 
 public interface IConseillerService {
-	
+
 	public Conseiller authentificationConseiller(String login, String mdp) throws ClassNotFoundException;
+
 	public Collection<Client> listerClients(Conseiller cons) throws ClassNotFoundException;
+
 	public Collection<Compte> listerComptes(Client cl);
+
 	void effectuerVirement(Conseiller conseiller, Compte compteEmetteur, Compte compteRecepteur, double montant)
 			throws SoldeInsuffisantException, MontantNegatifException, SQLException,
 			ClientGererParAutreConseillerException;
-	
-	void modifierClient(Conseiller conseiller, Client client) throws ClientGererParAutreConseillerException;
-	
+
 	void ajouterClient(Conseiller conseiller, Client client, String nom, String prenom, String adresse,
 			String telephone, String ville, String email, String codepostal)
 			throws ClientPossedeDejaConseillerException, NombreClientsMaxAtteintException, SQLException;
-	
-	void supprimerClient(Conseiller conseiller, Client client, int id) throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException;
+
+	void supprimerClient(Conseiller conseiller, Client client, int id)
+			throws ClientGererParAutreConseillerException, ClientInexistantException, SQLException;
+
+	void modifierClient(int idClient, String prenom, String nom, String ville, String adresse, String codepostal,
+			String email, String telephone);
 }
