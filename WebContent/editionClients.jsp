@@ -27,7 +27,7 @@
 	</nav>
 	<div class="container">
 		<form>
-		<legend class="legende">Modification des informations d'un client</legend>
+		<legend class="legende">Modification les informations d'un client</legend>
 			<div class="form-group row">
 				<label for="nom" class="col-xs-4 col-form-label">Saisir le
 					nom</label>

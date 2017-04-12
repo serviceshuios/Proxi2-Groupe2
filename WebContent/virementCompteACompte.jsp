@@ -24,8 +24,46 @@
 				<li class="active"><a href="#">Virement</a></li>
 			</ul>
 		</div>
-	</nav>
-	</div>	
+		</nav>
+		<div class="container">
+		<form>
+		<legend class="legende">Virement compte à compte</legend>
+			<div class="form-group row">
+				<label for="nom" class="col-xs-4 col-form-label">Saisir le
+					nom</label>
+				<div class="col-xs-8">
+					<input type="text" class="form-control" id="nom" placeholder="nom">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="clientCompteEmetteur" class="col-xs-4 col-form-label">Saisir l'identifiant du
+					client du compte à débiter</label>
+				<div class="col-xs-8">
+					<input type="text" class="form-control" id="idClientCompteADebiter" placeholder="identifiant">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="compteEmetteur" class="col-xs-4 col-form-label">Saisir le type de compte à débiter</label>
+				<div class="col-xs-8">
+					<input type="text" class="form-control" id="compteEmetteur" placeholder="courant ou epargne">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="clientCompteRecepteur" class="col-xs-4 col-form-label">Saisir l'identifiant du
+					client du compte à créditer</label>
+				<div class="col-xs-8">
+					<input type="text" class="form-control" id="idClientCompteACrediter" placeholder="identifiant">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="compteRecepteur" class="col-xs-4 col-form-label">Saisir le type de compte à créditer</label>
+				<div class="col-xs-8">
+					<input type="text" class="form-control" id="compteRecepteur" placeholder="courant ou epargne">
+				</div>
+			</div>
+		</form>
+	</div>
+	</div>
 	<div id="footer">
       <div class="container">
         <p>ProxiBanque v2</p>

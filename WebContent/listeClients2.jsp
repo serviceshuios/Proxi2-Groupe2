@@ -88,6 +88,7 @@
 		</div>
 		<div class="container">
 			<table class="table row">
+				<thead class="thead-inverse">
 				<tr>
 					<th>Id</th>
 					<th>Nom</th>
@@ -96,21 +97,20 @@
 					<th></th>
 					<th></th>
 				</tr>
-				<c:if test="${! empty listeClients}">
-				<c:forEach var="c" items="${listeClients}">
+				</thead>
+				<tbody>
 					<tr>
-						<td><c:out value="${c.id}"></c:out></td>
-						<td><c:out value="${c.nom}"></c:out></td>
-						<td><c:out value="${c.prenom}"></c:out></td>
+						<td><c:out value="test"></c:out></td>
+						<td><c:out value="test"></c:out></td>
+						<td><c:out value="test"></c:out></td>
 						<td><a class="btn btn-link"
-							href="GestionClients?action=editionClients&id=<c:out value='${c.id}'></c:out>" role="button">Modifier</a></td>
+							href="GestionClients?action=editionClients" role="button">Modifier</a></td>
 						<td><a class="btn btn-link"
 							href="GestionClients?action=supprimerClients" role="button">Supprimer</a></td>
 						<td><a class="btn btn-link"
 							href="GestionClients?action=listeComptes" role="button">Comptes</a></td>
 					</tr>
-				</c:forEach>
-			</c:if>
+				</tbody>
 			</table>
 	</div>
 	</div>

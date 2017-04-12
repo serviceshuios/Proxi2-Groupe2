@@ -18,6 +18,15 @@ body {
   padding: 0 0 30px;
 }
 
+.table {
+	margin-top: 20px;
+	background-color: white;
+}
+
+.thead-inverse {
+	background-color: #949494;
+}
+
 .legende{
 	font-size: 1.5em;
 	color: #555555;
