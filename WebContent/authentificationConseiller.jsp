@@ -28,11 +28,13 @@
 	<div class="container">
 		<form method="post" action="Login"
 			class="form-inline row">
+			<fieldset>
 			<legend class="legende">Authentification</legend>
 			<label class="sr-only" for="login">Login</label> <input type="text"
 				class="col-4" id="login" placeholder="Identifiant"> <label
 				class="sr-only" for="mdp">MDP</label> <input type="password"
 				class="col-4" id="mdp" placeholder="Mot de passe">
+			</fieldset>
 			<button type="submit" class="col-4 btn btn-primary">Valider</button>
 		</form>
 	</div>

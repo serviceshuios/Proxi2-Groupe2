@@ -25,8 +25,7 @@ public class DAO implements Idao {
 			Connection conn = DAOConnexion.getConnection();
 			// 2-Créer la requête
 			// Le SQL recquiert des simples quotes ' => concaténation pour avoir le bon format
-			//PreparedStatement ps = conn.prepareStatement("insert into Client(nom,prenom) VALUES('"+c.getNom()+"','"+c.getPrenom()+"')");
-			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login = ? and mdp =?");
+			PreparedStatement ps = conn.prepareStatement("select * from conseiller where login = ? and mdp = ?");
 			ps.setString(1, login);
 			ps.setString(2, mdp);
 			// 4-Exécuter la requête

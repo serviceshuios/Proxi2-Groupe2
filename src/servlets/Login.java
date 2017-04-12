@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(cons.getId()==0)
+		if(cons.getId()!=0)
 		{
 		//3- Session 
 		HttpSession session = request.getSession();
